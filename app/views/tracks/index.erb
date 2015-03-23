@@ -1,10 +1,20 @@
-<a href="/tracks/new">Submit a track</a>
 
-<% @tracks.each do |track| %>
-  <div class="track">
-    <h3><a href="/tracks/<%= track.id %>"><%= track.song_title %> <small>(by: <%= track.author %>)</small></h3>
-    <p>
-      <%= track.url %>
-    </p>
+<div>
+  <div class='navbar-nav'>
+    <button type="button" class="btn btn-lg btn-warning"><a href="/tracks/new">Submit a track</a></button>
   </div>
-<% end %>
+</div>
+
+<div class='well col-md-12'>
+  <% @tracks.each do |track| %>
+    <div class="track">
+      <h3><a href="/tracks/<%= track.id %>"><%= track.song_title %> <small>(by: <%= track.author %>)</small></h3>
+      <p>
+        <%= track.url %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+
+
