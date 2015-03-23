@@ -20,7 +20,7 @@ end
 
 post '/tracks' do
   @track = Track.new(
-    title: params[:title],
+    song_title: params[:song_title],
     url:        params[:url],
     author:     params[:author]
   )
