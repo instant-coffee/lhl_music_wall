@@ -1,9 +1,8 @@
 <a href="/tracks/new">Submit a track</a>
 
-
 <% @tracks.each do |track| %>
   <div class="track">
-    <h3><%= track.song_title %> <small>(by: <%= track.author %>)</small></h3>
+    <h3><a href="/tracks/<%= track.id %>"><%= track.song_title %> <small>(by: <%= track.author %>)</small></h3>
     <p>
       <%= track.url %>
     </p>
