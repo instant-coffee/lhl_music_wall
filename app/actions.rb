@@ -4,5 +4,7 @@ get '/' do
 end
 
 get '/tracks' do
-  erb:'tracks/index'
+  @tracks = Track.all
+  erb::'tracks/index'
 end
+
