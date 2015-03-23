@@ -5,15 +5,28 @@ end
 
 get '/tracks' do
   @tracks = Track.all
-  erb::'tracks/index'
+  erb :'tracks/index'
+end
+
+get '/tracks/new' do
+  @track = Track.new
+  erb :'tracks/new_track'
+end
+
+get '/tracks/:id' do
+  @mtrack = Track.find params[:id]
+  erb :'tracks/show'
 end
 
 post '/tracks' do
   @track = Track.new(
-    track_title: params[:track_title],
-    url: params[:url],
-    author:  params[:author]
+    song_title: params[:song_title],
+    url:        params[:url],
+    author:     params[:author]
   )
-  @track.save
-  redirect '/tracks'
+  if @track.save
+    redirect '/tracks'
+  else 
+    erb :'tracks/new'
+  end 
 end
